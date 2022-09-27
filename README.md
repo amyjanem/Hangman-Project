@@ -30,7 +30,11 @@ else:
 
 ## Milestone 2
 
-- Does what you have built in this milestone connect to the previous one? If so explain how. What technologies are used? Why have you used them? Have you run any commands in the terminal? If so insert them using backticks (To get syntax highlighting for code snippets add the language after the first backticks).
+- In this milestone, code from the previous milestone was used to create functions, namely check_guess and ask_for_input.
+- In the function ask_for_input, a while loop is used to ensure the code runs continuously. An if/else statement is then used to check whether the users input is a single character. 
+- In the function check_guess, the users input is converted to lowercase using the .lower() method, and then an if/else statement is used to verify whether the users input is in the word that Python randomly selected.
+
+Have you run any commands in the terminal? If so insert them using backticks (To get syntax highlighting for code snippets add the language after the first backticks).
 
 - Example below:
 
@@ -40,8 +44,41 @@ else:
 
 - The above command is used to check whether the topic has been created successfully, once confirmed the API script is edited to send data to the created kafka topic. The docker container has an attached volume which allows editing of files to persist on the container. The result of this is below:
 
-```python
-"""Insert your code here"""
+```
+import random
+
+
+word_list = ["apple", "banana", "orange", "strawberry", "watermelon", "pineapple", "blueberry", "kiwi"]
+        
+word = random.choice(word_list)
+
+
+
+def check_guess(guess):
+
+    guess = guess.lower()
+
+    if guess in word:
+        print(f"Good guess! {guess} is in the word.")
+    else:
+        print(f"Sorry, {guess} is not in the word. Try again.")
+        
+
+def ask_for_input():
+   
+    while True:
+
+        guess = input("Choose a letter")
+
+        if len(guess) == 1:
+            break
+        else:
+            print("Invalid letter. Please, enter a single alphabetical character.")
+    
+    check_guess(guess)
+
+
+ask_for_input()
 ```
 
 > Insert screenshot of what you have built working.
