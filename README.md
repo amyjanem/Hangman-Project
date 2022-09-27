@@ -26,7 +26,6 @@ else:
     print("Oops! That is not a valid input")
 ```
 
-> Insert an image/screenshot of what you have built so far here.
 
 ## Milestone 2
 
@@ -81,7 +80,6 @@ def ask_for_input():
 ask_for_input()
 ```
 
-> Insert screenshot of what you have built working.
 
 ## Milestone n
 
