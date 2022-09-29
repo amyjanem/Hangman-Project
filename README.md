@@ -80,6 +80,63 @@ def ask_for_input():
 ask_for_input()
 ```
 
+## Milestone 3
+
+- This milestone focused on creating a game class for the Hangman game. 
+- The _ _ init _ _ method was used to initialise the attributes, such as word (word to be guessed), word_list (the list of words to be picked from), num_letters (number of unique letters in the word left to be guessed), num_lives (number of lives left, this starts at 5), list_of_guesses (a list of guesses already tried) and word_guessed (a list like the following ["_", "_", "_", "_"] depending on how many letters are in the randomly selected word, to be replaced with correct guesses)
+- Two separate funtions were then defined, the check_guess and ask_for_input methods as previously described in Milestone 2, however in this instance, the functions also check that the input guess from the user is alphabetical as well as a single character. Additionally, an elif statement is used to check whether the user has already guessed a certain letter. After this, the function then adds the guess to a list of guesses (list_of_guesses).
+- When a letter is correctly guessed by the user, a for-loop is used to cycle through each index position of the word, and replaces the '_' with the letter in the correct postion. This is done using the enumerate() function which adds a counter as the key of the enumerate object, in this case the word randomly chosen by Python.
+- After the user guesses, a for-loop is used to reduce the number of letters remaining in the word to be guessed by 1.
+- Within the check_guess method, if the user guesses a letter incorrectly, an else statement is used to reduce the number of lives the user has (num_lives) by 1. This incorrect guess is then added to a list to keep track of what has been guesses already (list_of_guesses).
+
+```
+import random
+
+class Hangman:
+
+    def __init__(self, word_list, num_lives = 5):
+        self.word = random.choice(word_list)
+        self.word_guessed = len(self.word) * ['_']
+        self.num_letters = len(self.word)
+        self.num_lives = num_lives
+        self.word_list = word_list
+        self.list_of_guesses = []
+
+    def check_guess(self, guess):
+        
+        guess = guess.lower()
+
+        if guess in self.word:
+            print(f"Good guess! {guess} is in the word.")
+            
+            for index, letter in enumerate(self.word):
+                if letter == guess:
+                    self.word_guessed[index] = letter
+            self.num_letters -= 1
+
+        else:
+            self.num_lives -= 1
+            print(f"Sorry, {guess} is not in the word. Try again.")
+            print(f"You have {self.num_lives} lives left.")
+        
+        self.list_of_guesses.append(guess)
+
+    def ask_for_input(self):
+
+        while True:
+            guess = input("Choose a letter")
+
+            if guess.isaplha() == False or guess != 1:
+                print("Invalid letter. Please, enter a single alphabetical character.")
+            elif guess in self.list_of_guesses:
+                print("You already tried that letter!")
+            else:
+                self.check_guess(guess)
+                self.list_of_guesses.append(guess)
+
+ask_for_input()
+```
+
 
 ## Milestone n
 
