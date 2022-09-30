@@ -1,6 +1,6 @@
 # Hangman-Project
 
-> Include here a brief description of the project, what technologies are used etc.
+> This project consists of 3 milestones aimed to incrementally create the game Hangman. Each milestone introduces a step, from creating variables, checking whether guessed charaters are in the word, and creating the game class, which then is added all together in the final milestone where the user is able to play the game. 
 
 ## Milestone 1
 
@@ -138,14 +138,28 @@ ask_for_input()
 ```
 
 
-## Milestone n
+## Milestone 3
 
-- Continue this process for every milestone, making sure to display clear understanding of each task and the concepts behind them as well as understanding of the technologies used.
+- In this final milestone, all of the previous work gets put together. 
+- A function called playgame() is created which will be called to play Hangman. 
+- Within this function, a word_list is defined containing 5 fruits that Python will randomly select from. 
+- An instance of the game is created with word_list and num_lives passed in as arguments.
+- Within this, a while loop is used and set to True to check the following:
+  - Firstly, if the num_lives left is equal to 0, in which case Python will tell the user they have lost
+  - Secondly, if the num_letters is greater than 0, in which case the game will be continued by calling the ask_for_input method
+  - And lastly, the code checks whether num_lives is not 0, AND if num_letters is not greater than zero, which means the user has won the game, thus the user is told that they have won.
+- Following this the play_game function is called to begin the game
 
-- Also don't forget to include code snippets and screenshots of the system you are building, it gives proof as well as it being an easy way to evidence your experience!
+- Some personal enhancements that were added to the code inlude an encourangment message to be relayed to the user once they have one guess left. Additionally, the messages delivered for incorrect guesses were varied randomly, and the code now displays the visual of word as it is guessed similar to how you would write it out if playing on paper ie. ( _ p p _ e ) for apple
+
+```
+insert code
+```
+
+
 
 ## Conclusions
 
 - Maybe write a conclusion to the project, what you understood about it and also how you would improve it or take it further.
 
-- Read through your documentation, do you understand everything you've written? Is everything clear and cohesive?
+
