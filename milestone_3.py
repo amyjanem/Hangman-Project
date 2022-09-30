@@ -22,6 +22,7 @@ class Hangman:
             for index, letter in enumerate(self.word):
                 if letter == guess:
                     self.word_guessed[index] = letter
+            
             self.num_letters -= 1
 
         else:
@@ -36,7 +37,7 @@ class Hangman:
         while True:
             guess = input("Choose a letter")
 
-            if guess.isaplha() == False or guess != 1:
+            if guess.isalpha() == False or len(guess) != 1:
                 print("Invalid letter. Please, enter a single alphabetical character.")
             elif guess in self.list_of_guesses:
                 print("You already tried that letter!")
@@ -44,6 +45,23 @@ class Hangman:
                 self.check_guess(guess)
                 self.list_of_guesses.append(guess)
 
-ask_for_input()
+def play_game():
+    word_list = ["watermelon", "orange", "strawberry", "apple", "banana"]
+    game = Hangman(word_list, num_lives = 5)
+
+    while True:
+        if game.num_lives == 0:
+            print("You lost!")
+            break
+        elif game.num_lives > 0:
+            game.ask_for_input()
+        elif game.num_lives > 0 and game.num_letters < 1:
+            print("Congratulations. You won!")
+            break
+        else:
+            break
+            
+
+play_game()
 
 # %%
