@@ -128,7 +128,7 @@ ask_for_input()
 ```
 
 
-## Milestone 3
+## Final Milestone
 
 - In this final milestone, all of the previous work gets put together. 
 - A function called playgame() is created which will be called to play Hangman. 
