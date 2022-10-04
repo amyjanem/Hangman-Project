@@ -8,14 +8,7 @@ class Hangman:
     '''
 
     def __init__(self, word_list, num_lives = 5):
-        '''This function initializes the following attributes:
-        word_list: a list of words the computer will randomly select from
-        word: the word randomly selected by the computer from words_list
-        num_lives: the numbers of lives left (this starts at 5 by default)
-        num_letters: the number of unique letters still left to be guessed by the user
-        word_guessed: a list of the letters in the word, with '_' replacing unknown letters
-        list_of_guesses: a list of guesses already tried  
-        '''
+        '''This method initializes the following necessary attributes'''
 
         self.word = random.choice(word_list)
         self.word_guessed = len(self.word) * ['_']
@@ -25,12 +18,7 @@ class Hangman:
         self.list_of_guesses = []
 
     def check_guess(self, guess):
-        '''This function first converts the user's guess to lower case.
-        It then checks whether the guess is in the word chosen by the computer, if it is, it replaces the '_' in the word_guessed with the actual letter, and decreases the amount of unique letters left to be guessed.
-        It also checks if there are multiples of the same letter in the word. If so, it accordingly removes the amount of remaining unique letters left to be guessed.
-        If the guessed letter is not in the word, the number of lives left is reduced by 1.
-        Lastly, the guess is added to list_of_guesses to keep track of what has been guessed already.
-        '''
+        '''This method checks whether the user's guess is in the word chosen by the computer, and manages the number of unique letters left to guess as well as the number of lives left.'''
         
         guess = guess.lower()
         
@@ -61,11 +49,7 @@ class Hangman:
         self.list_of_guesses.append(guess)
 
     def ask_for_input(self):
-        '''This function asks the user to input a letter they think will be in the word. 
-        It makes sure the guess is an alphabetical letter, as one as one single character. If not, it reminds the user that it needs to be a single alphabetical character.
-        It also checks if the user has already guessed the letter, and if so, reminds them to try a different letter.
-        If the user inputs a unique guess correctly, the function then calls the check_guess function, and adds the guess to list_of_guesses.
-        '''
+        '''This method asks the user to input a letter they think will be in the word, and checks that the input is a unique single alphabetical character.'''
 
         while True:
             guess = input("Choose a letter")
@@ -81,13 +65,7 @@ class Hangman:
 
 
 def play_game():
-    '''The play_game function sets the list of words to be chosen from by the computer. 
-    It also sets the number of lives available to 5.
-    The function uses a while True statement to ensure it continuously runs until told to break.
-    Within this statement, the function checks if there are still unique letters to be guessed. If so, and the number of lives left are still more than 0, the ask_for_input function is called.
-    Otherwise, if there are no lives left, the function tells the user they have lost. 
-    After these checks, if the number of letters left equals to 0, the user is told that they have won. 
-    '''
+    '''Calling this function will start the game of Hangman.'''
 
     word_list = ["pear", "orange", "strawberry", "apple", "banana"]
     game = Hangman(word_list, num_lives=5)
